@@ -34,4 +34,28 @@ public class Customer {
         System.out.println("Contact Number: " + contactNumber);
         System.out.println("Email: " + email);
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setLicense(String license) {
+        this.license = license;
+    }
 }
