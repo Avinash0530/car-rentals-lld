@@ -18,4 +18,28 @@ public class Car extends Vehicle{
         System.out.println("Convertible: " + isConvertible);
         System.out.println("Fuel Type: " + fuelType);
     }
+
+    public int getNumDoors() {
+        return numDoors;
+    }
+
+    public void setNumDoors(int numDoors) {
+        this.numDoors = numDoors;
+    }
+
+    public boolean isIsConvertible() {
+        return isConvertible;
+    }
+
+    public void setIsConvertible(boolean isConvertible) {
+        this.isConvertible = isConvertible;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+
+    public void setFuelType(String fuelType) {
+        this.fuelType = fuelType;
+    }
 }
