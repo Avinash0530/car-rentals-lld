@@ -53,4 +53,12 @@ public class RentalSystem {
     public double calculateRentalCost(Vehicle vehicle, int rentalDuration) {
         return vehicle.getDailyRentalRate() * rentalDuration;
     }
+
+    public void setAvailableVehicles(List<Vehicle> availableVehicles) {
+        this.availableVehicles = availableVehicles;
+    }
+
+    public void setRentedVehicles(List<Vehicle> rentedVehicles) {
+        this.rentedVehicles = rentedVehicles;
+    }
 }
