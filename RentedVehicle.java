@@ -7,6 +7,34 @@ public class RentedVehicle {
     private boolean isPaid;
     private PaymentMethod paymentMethod;
 
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public void setRentalType(String rentalType) {
+        this.rentalType = rentalType;
+    }
+
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
+
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+
     public enum PaymentMethod {
         CREDIT_CARD, DEBIT_CARD, CASH, DIGITAL_WALLET
     }
