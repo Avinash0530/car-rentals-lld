@@ -11,4 +11,12 @@ public class Motorbike extends Vehicle {
         super.displayInfo();
         System.out.println("Bike Type: " + bikeType);
     }
+
+    public String getBikeType() {
+        return bikeType;
+    }
+
+    public void setBikeType(String bikeType) {
+        this.bikeType = bikeType;
+    }
 }
