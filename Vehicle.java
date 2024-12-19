@@ -48,4 +48,24 @@ public class Vehicle {
     public int getYear() {
         return year;
     }
+
+    public void setMake(String make) {
+        this.make = make;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public void setDailyRentalRate(double dailyRentalRate) {
+        this.dailyRentalRate = dailyRentalRate;
+    }
+
+    public void setHourlyRentalRate(double hourlyRentalRate) {
+        this.hourlyRentalRate = hourlyRentalRate;
+    }
 }
