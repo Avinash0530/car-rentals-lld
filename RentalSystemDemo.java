@@ -26,30 +26,18 @@ public class RentalSystemDemo {
             scanner.nextLine(); 
 
             switch (mainChoice) {
-                case 1:
-                    handleCustomerRegistration(scanner);
-                    break;
-                case 2:
-                    handleShowVehicles(scanner, vehicles, rentedVehicles);
-                    break;
-                case 3:
-                    handleRentVehicle(scanner, vehicles, rentedVehicles);
-                    break;
-                case 4:
-                    handleReturnVehicle(scanner, rentedVehicles);
-                    break;
-                case 5:
-                    handleViewRentedVehicles(rentedVehicles);
-                    break;
-                case 6:
-                    switchCustomer(scanner);
-                    break;
-                case 7:
+                case 1 -> handleCustomerRegistration(scanner);
+                case 2 -> handleShowVehicles(scanner, vehicles, rentedVehicles);
+                case 3 -> handleRentVehicle(scanner, vehicles, rentedVehicles);
+                case 4 -> handleReturnVehicle(scanner, rentedVehicles);
+                case 5 -> handleViewRentedVehicles(rentedVehicles);
+                case 6 -> switchCustomer(scanner);
+                case 7 -> {
                     System.out.println("Thank you for using the Vehicle Rental System!");
                     scanner.close();
                     return;
-                default:
-                    System.out.println("Invalid choice. Please select a valid option.");
+                }
+                default -> System.out.println("Invalid choice. Please select a valid option.");
             }
         }
     }
@@ -94,19 +82,13 @@ public class RentalSystemDemo {
                 int typeChoice = scanner.nextInt();
 
                 switch (typeChoice) {
-                    case 1:
-                        displayVehiclesByType(vehicles, rentedVehicles, "Car");
-                        break;
-                    case 2:
-                        displayVehiclesByType(vehicles, rentedVehicles, "Motorbike");
-                        break;
-                    case 3:
-                        displayVehiclesByType(vehicles, rentedVehicles, "Truck");
-                        break;
-                    case 4:
+                    case 1 -> displayVehiclesByType(vehicles, rentedVehicles, "Car");
+                    case 2 -> displayVehiclesByType(vehicles, rentedVehicles, "Motorbike");
+                    case 3 -> displayVehiclesByType(vehicles, rentedVehicles, "Truck");
+                    case 4 -> {
                         return;
-                    default:
-                        System.out.println("Invalid choice. Please select a valid option.");
+                    }
+                    default -> System.out.println("Invalid choice. Please select a valid option.");
                 }
             }
         } else {
@@ -186,28 +168,33 @@ public class RentalSystemDemo {
             RentedVehicle.PaymentMethod paymentMethod;
 
             switch (paymentChoice) {
-                case 1: paymentMethod = RentedVehicle.PaymentMethod.CREDIT_CARD; break;
-                case 2: paymentMethod = RentedVehicle.PaymentMethod.DEBIT_CARD; break;
-                case 3: paymentMethod = RentedVehicle.PaymentMethod.CASH; break;
-                case 4: paymentMethod = RentedVehicle.PaymentMethod.DIGITAL_WALLET; break;
-                default: 
+                case 1 -> paymentMethod = RentedVehicle.PaymentMethod.CREDIT_CARD;
+                case 2 -> paymentMethod = RentedVehicle.PaymentMethod.DEBIT_CARD;
+                case 3 -> paymentMethod = RentedVehicle.PaymentMethod.CASH;
+                case 4 -> paymentMethod = RentedVehicle.PaymentMethod.DIGITAL_WALLET;
+                default -> { 
                     System.out.println("Invalid payment method. Defaulting to Cash.");
                     paymentMethod = RentedVehicle.PaymentMethod.CASH;
+                }
             }
 
             double totalCost;
             int duration;
-            if (rentalOption == 1) {
-                System.out.print("Enter the number of days for booking: ");
-                duration = scanner.nextInt();
-                totalCost = vehicleToRent.getDailyRentalRate() * duration;
-            } else if (rentalOption == 2) {
-                System.out.print("Enter the number of hours for booking: ");
-                duration = scanner.nextInt();
-                totalCost = vehicleToRent.getHourlyRentalRate() * duration;
-            } else {
-                System.out.println("Invalid rental option.");
-                return;
+            switch (rentalOption) {
+                case 1 -> {
+                    System.out.print("Enter the number of days for booking: ");
+                    duration = scanner.nextInt();
+                    totalCost = vehicleToRent.getDailyRentalRate() * duration;
+                }
+                case 2 -> {
+                    System.out.print("Enter the number of hours for booking: ");
+                    duration = scanner.nextInt();
+                    totalCost = vehicleToRent.getHourlyRentalRate() * duration;
+                }
+                default -> {
+                    System.out.println("Invalid rental option.");
+                    return;
+                }
             }
 
             RentedVehicle rentedVehicle = new RentedVehicle(
@@ -304,5 +291,13 @@ public class RentalSystemDemo {
         } else {
             System.out.println("Invalid choice. Returning to main menu.");
         }
+    }
+
+    public static List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public static void setCustomers(List<Customer> customers) {
+        RentalSystemDemo.customers = customers;
     }
 }
